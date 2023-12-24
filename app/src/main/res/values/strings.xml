@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">hw3</string>
+
+    <string name="lessons">Уроки</string>
+    <string name="metronome">Метроном</string>
+    <string name="favourites">Избранное</string>
+    <string name="progress">Достижения</string>
+    <string name="feedback">Обратная связь</string>
+
+</resources>
