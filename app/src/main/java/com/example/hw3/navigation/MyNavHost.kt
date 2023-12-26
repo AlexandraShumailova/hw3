@@ -6,6 +6,9 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.hw3.data.TopicRepInt
+import com.example.hw3.data.TopicRepository
+import com.example.hw3.data.TopicViewModel
 import com.example.hw3.screens.Favourites
 import com.example.hw3.screens.Feedback
 import com.example.hw3.screens.Lesson
@@ -26,7 +29,8 @@ fun CustomNavHost(
             MainMenu(navController)
         }
         composable(route = "Lessons") {
-            Lessons(navController)
+            val view = TopicRepository()
+            Lessons(TopicViewModel(view), navController)
         }
         composable(route = "Favourites") {
             Favourites(navController)

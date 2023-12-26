@@ -36,30 +36,31 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.hw3.R
 import com.example.hw3.data.Topic
+import com.example.hw3.data.TopicRepInt
+import com.example.hw3.data.TopicRepository
+import com.example.hw3.data.TopicViewModel
+import com.example.hw3.data.emptyTopicList
 import com.example.hw3.data.topicList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-
 @SuppressLint("CoroutineCreationDuringComposition")
 @Composable
-fun Lessons(navController: NavHostController){
+fun Lessons(viewModel: TopicViewModel, navController: NavHostController){
+    var topList = remember { mutableStateOf(emptyTopicList) }
     var isLoading = remember { mutableStateOf(false) }
-    suspend fun loadData() {
-        isLoading.value = true
-        delay(2000) // Задержка в 2 секунды
-        // Место для выполнения фактической загрузки данных
-        isLoading.value = false
-    }
+    val toTrue: () -> Unit = {isLoading.value = true}
+    val toFalse: () -> Unit = {isLoading.value = false}
 
     Column(){
         HeadWithBack(text = stringResource(id = R.string.lessons), navController)
-        val scope = rememberCoroutineScope()
         LaunchedEffect(Unit) {
             if (!isLoading.value) {
-                loadData()
+                isLoading.value = true
+                topList.value = viewModel.loadData()
+                isLoading.value = false
             }
         }
         if (isLoading.value){
@@ -77,7 +78,7 @@ fun Lessons(navController: NavHostController){
                 .fillMaxSize()
                 .padding(30.dp),
             ){
-                topicList.forEach { item ->
+                topList.value.forEach { item ->
                     Topic(item, navController)
                 }
             }

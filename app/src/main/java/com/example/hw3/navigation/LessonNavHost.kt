@@ -12,6 +12,7 @@ import com.example.hw3.screens.MainMenu
 import com.example.hw3.screens.Metronome
 import com.example.hw3.screens.Progress
 
+/*
 @Composable
 fun LessonNavHost(
     navController: NavHostController
@@ -24,4 +25,4 @@ fun LessonNavHost(
             Lessons(navController)
         }
     }
-}
+}*/
