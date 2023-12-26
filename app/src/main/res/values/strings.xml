@@ -6,5 +6,11 @@
     <string name="favourites">Избранное</string>
     <string name="progress">Достижения</string>
     <string name="feedback">Обратная связь</string>
+    <string name="GG">Гитарный гид</string>
+    <string name="lesson">Урок</string>
+    <string name="topic">Тема</string>
+
+    <string name="theory">Теория</string>
+    <string name="practise">Практика</string>
 
 </resources>

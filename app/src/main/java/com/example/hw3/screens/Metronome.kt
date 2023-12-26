@@ -16,19 +16,6 @@ import com.example.hw3.R
 @Composable
 fun Metronome(navController: NavHostController){
     Column(){
-        Head(text = "Metronome")
-        Button(
-            onClick = {
-                navController.navigate(route = "MainMenu")
-            },
-            modifier = Modifier.fillMaxWidth(),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.DarkGray)
-        ) {
-            Text(
-                text = "Back",
-                textAlign = TextAlign.Center,
-                color = Color.White
-            )
-        }
+        HeadWithBack(text = stringResource(id = R.string.metronome), navController)
     }
 }
